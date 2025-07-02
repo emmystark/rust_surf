@@ -11,7 +11,7 @@ fn main() {
     add();
     borrowing();
 
-    array_();
+    data_structure();
 }
 
 fn calculate_sum() {
@@ -138,8 +138,23 @@ fn borrowing() {
 }
 
 
-fn array_() {
+fn data_structure() {
+    // array
     let fruits = ["banana", "mango", "pineapple", "egg"];
-
     println!("{} is not a fruit", fruits[3].to_uppercase());
+
+    // vector 
+    let mut universities = vec!["Uniben", "Unilag", "Lasu", "Unizik", "Uniuyo" ];
+    universities.push("Uni-Ibadan");
+
+    println!("These is a list of universities in Nigeria ");
+
+    let mut count = 1;
+
+    for university in &universities {
+        println!("{}. {}",count, university);
+        count += 1;
+    }
+
+    
 }
