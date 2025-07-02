@@ -8,6 +8,10 @@ fn main() {
     calculate_sum();
     constants_();
     match_();
+    add();
+    borrowing();
+
+    array_();
 }
 
 fn calculate_sum() {
@@ -64,8 +68,78 @@ fn match_() {
     // }
 
     match day {
-        1 | 2 | 3 | 4 | 5  =>  println!("Weekday!"),
+        1 | 2 | 3 | 4 | 5 => println!("Weekday!"),
         6 | 7 => println!("Weekend!"),
-        _ => println!("Invalid day")
+        _ => println!("Invalid day"),
     }
+
+    loop {
+        println!("Looping");
+        break;
+    }
+
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {}", count);
+        let mut remaining = 10;
+        loop {
+            println!("remaining = {}", remaining);
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+        count += 1;
+    }
+    println!("End count = {}", count);
+
+    while count < 10 {
+        println!("count = {}", count);
+        count += 1;
+    }
+    println!("End count = {}", count);
+
+    let mut num = 1;
+
+    while num <= 10 {
+        if num == 6 {
+            num += 1;
+            continue;
+        }
+
+        println!("Number: {}", num);
+        num += 1;
+    }
+
+    // for i in 1..6 {
+    for i in 1..=6 {
+        println!("i is: {}", i);
+    }
+}
+
+fn add() {
+    fn add(a: i32, b: i32) -> i32 {
+        a + b
+    }
+
+    let sum = add(3, 4);
+    println!("Sum is: {}", sum);
+}
+
+fn borrowing() {
+    let a = String::from("Hello");
+    let b = &a;
+
+    println!("a = {}", a);
+    println!("b = {}", b);
+}
+
+
+fn array_() {
+    let fruits = ["banana", "mango", "pineapple", "egg"];
+
+    println!("{} is not a fruit", fruits[3].to_uppercase());
 }
