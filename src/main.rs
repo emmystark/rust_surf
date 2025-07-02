@@ -1,3 +1,5 @@
+// Using W3 schools
+
 fn main() {
     println!("Hello, world!");
     print!("This is a simple Rust program.\n");
