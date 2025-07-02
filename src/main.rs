@@ -12,6 +12,10 @@ fn main() {
     borrowing();
 
     data_structure();
+
+    using_struct();
+
+    _enum();
 }
 
 fn calculate_sum() {
@@ -138,8 +142,6 @@ fn borrowing() {
 }
 
 fn data_structure() {
-
-
     // array
 
     // An array in Rust is a fixed-size list of values, all of the same type.
@@ -150,10 +152,15 @@ fn data_structure() {
 
     // Array indexes start with 0: [0] is the first element, [1] is the second element, etc.
 
-    let fruits = ["banana", "mango", "pineapple", "egg"];
+    let mut fruits = ["banana", "mango", "pineapple", "egg"];
     println!("{} is not a fruit", fruits[3].to_uppercase());
-
-
+    fruits[3] = "apple";
+    println!(
+        "{} is a fruit, all fixed now 🫠, and the length of the array is {}",
+        fruits[3],
+        fruits.len()
+    );
+    println!("This is all of the array {:?}", fruits);
 
     // vector
 
@@ -171,7 +178,8 @@ fn data_structure() {
         count += 1;
     }
 
-
+    universities.remove(4);
+    println!("{:?} is the new list", universities);
 
     // Tuple
     // A tuple is a collection of values of different types.
@@ -180,9 +188,6 @@ fn data_structure() {
     println!("Name: {} ", person.0);
     println!("Age: {} ", person.1);
     println!("Is Alive: {}", person.2);
-
-
-
 
     // Hash Map, it is similar to dictionary in python
 
@@ -199,4 +204,51 @@ fn data_structure() {
     scores.insert("Sammy", 90);
 
     println!("Stark's score is: {}", scores["Stark"]);
+}
+
+fn using_struct() {
+    struct User {
+        username: String,
+        email: String,
+        sign_in_count: u64,
+        active: bool,
+    }
+
+    let mut user1 = User {
+        username: String::from("Stark"),
+        email: String::from("vXxh7@example.com"),
+        sign_in_count: 1,
+        active: true,
+    };
+
+    user1.email = String::from("stark@example.com");
+
+    println!("Username: {}", user1.username);
+    println!("Email: {}", user1.email);
+    println!("Sign in count: {}", user1.sign_in_count);
+    println!("Active: {}", user1.active);
+}
+
+    // An enum (short for "enumeration") is a way to define a type that can be one of a few     different values.
+
+    // Each value in the enum is called a variant.
+
+    // Enums are useful when you want to represent a value that can only be one of a set of options - like days of the week, directions, or results like success and error.
+    enum Direction {
+        Up,
+        Down,
+        Left,
+        Right,
+      }
+fn _enum() {
+
+
+    let my_direction = Direction::Left;
+
+    match my_direction {
+        Direction::Up => println!("Going up"),
+        Direction::Down => println!("Going down"),
+        Direction::Left => println!("Going left"),
+        Direction::Right => println!("Going right"),
+}
 }
