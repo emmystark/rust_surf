@@ -137,14 +137,29 @@ fn borrowing() {
     println!("b = {}", b);
 }
 
-
 fn data_structure() {
+
+
     // array
+
+    // An array in Rust is a fixed-size list of values, all of the same type.
+
+    // You cannot grow or shrink an array after it's created.
+
+    // To access an array element, refer to its index number.
+
+    // Array indexes start with 0: [0] is the first element, [1] is the second element, etc.
+
     let fruits = ["banana", "mango", "pineapple", "egg"];
     println!("{} is not a fruit", fruits[3].to_uppercase());
 
-    // vector 
-    let mut universities = vec!["Uniben", "Unilag", "Lasu", "Unizik", "Uniuyo" ];
+
+
+    // vector
+
+    // A vector is a resizable array. Unlike regular arrays, vectors can grow or shrink in size.
+
+    let mut universities = vec!["Uniben", "Unilag", "Lasu", "Unizik", "Uniuyo"];
     universities.push("Uni-Ibadan");
 
     println!("These is a list of universities in Nigeria ");
@@ -152,9 +167,36 @@ fn data_structure() {
     let mut count = 1;
 
     for university in &universities {
-        println!("{}. {}",count, university);
+        println!("{}. {}", count, university);
         count += 1;
     }
 
-    
+
+
+    // Tuple
+    // A tuple is a collection of values of different types.
+    let person = ("Stark", 50, true);
+
+    println!("Name: {} ", person.0);
+    println!("Age: {} ", person.1);
+    println!("Is Alive: {}", person.2);
+
+
+
+
+    // Hash Map, it is similar to dictionary in python
+
+    // A HashMap stores key-value pairs. It lets you look up a value using a key.
+
+    // To use HashMap, you must import it from the standard library.
+
+    use std::collections::HashMap;
+
+    let mut scores = HashMap::new();
+
+    scores.insert("Stark", 98);
+    scores.insert("Scot", 99);
+    scores.insert("Sammy", 90);
+
+    println!("Stark's score is: {}", scores["Stark"]);
 }
